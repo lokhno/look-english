@@ -2,9 +2,10 @@
 
 .menu {
     position: relative;
-    cursor: pointer;
+
     border-top-right-radius: 5px;
     &__opener {
+        cursor: pointer;
         display: flex;
         height: 100%;
     }
