@@ -10,7 +10,8 @@
     }
     &__greetings {
         display: flex;
-        width: 125px;
+        width: 113px;
+
         font-size: 20px;
         align-items: center;
         margin: 10px;
@@ -73,6 +74,7 @@
 @media all and (min-width: 800px) {
     .menu {
         &__greetings {
+            max-width: none;
             width: 200px;
         }
         &__dropdown {

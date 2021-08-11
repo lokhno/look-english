@@ -12,4 +12,22 @@
         background-color: $hover-background-color;
         cursor: pointer;
     }
+    &__title {
+        display: none;
+    }
+    &__icon {
+        display: block;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .button {
+        &__title {
+            display: block;
+        }
+        &__icon {
+            display: none;
+        }
+
+    }
 }
