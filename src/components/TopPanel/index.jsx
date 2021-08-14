@@ -1,13 +1,14 @@
 import React from "react";
 
 import Menu from "./Menu";
+import Title from "./Title";
 
 import "./TopPanel.scss";
 
 function TopPanel() {
     return (
         <div className="top-panel">
-            <h1 className="top-panel__title">Looks English</h1>
+            <Title className="top-panel__title"/>
             <Menu className="top-panel__menu" />
         </div>
     );
