@@ -1,0 +1,9 @@
+.list__words {
+    margin-top: 5px;
+}
+
+@media all and (min-width: 800px) {
+    .list__words {
+        margin-top: 10px;
+    }
+}
