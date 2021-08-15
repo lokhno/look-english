@@ -3,16 +3,17 @@ import classnames from "classnames";
 
 import "./ListItem.scss";
 
-function ListItem({ className, children, AdditionalInformation }) {
+function ListItem({ children, onSelect }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [isChecked, setIsChecked] = useState(false);
+    const [isSelected, setIsSelected] = useState(false);
+
+    const content = children.filter((item) => item?.type?.name?.toLocaleLowerCase()?.includes("content"));
+    const otherInformation = children.filter((item) => !item?.type?.name?.toLocaleLowerCase()?.includes("content"));
 
     const handleOpen = (e) => {
-        console.log(e.target);
-        window.a = e.target;
         setIsOpen(!isOpen);
     };
-    const handleCheck = (e) => {
+    const handleSelect = (e) => {
         if (
             !(
                 e.target.className === "fas fa-chevron-down btn-icon" ||
@@ -20,17 +21,18 @@ function ListItem({ className, children, AdditionalInformation }) {
                 e.target.className === "list-item__visibility-toggler-button"
             )
         ) {
-            setIsChecked(!isChecked);
+            setIsSelected(!isSelected);
+            onSelect && onSelect();
         }
     };
 
     return (
         <div
-            onClick={handleCheck}
-            className={classnames("list-item", { "list-item_open": isOpen, "list-item_checked": isChecked })}
+            onClick={handleSelect}
+            className={classnames("list-item", { "list-item_open": isOpen, "list-item_selected": isSelected })}
         >
             <div className="list-item__main-info">
-                <div className="list-item__container">{children}</div>
+                <div className="list-item__container">{content}</div>
                 <div className="list-item__visibility-toggler">
                     <div className="list-item__visibility-toggler-button" onClick={handleOpen}>
                         <i className="fas fa-chevron-down btn-icon"></i>
@@ -38,10 +40,7 @@ function ListItem({ className, children, AdditionalInformation }) {
                     </div>
                 </div>
             </div>
-            <div className="list-item__additional-info">
-                <div>Статус: Выучено</div>
-                <div>Категория: Новые слова</div>
-            </div>
+            <div className="list-item__additional-info">{otherInformation}</div>
         </div>
     );
 }

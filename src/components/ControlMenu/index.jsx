@@ -4,9 +4,9 @@ import { Button } from "../";
 
 import "./ControlMenu.scss";
 
-function ControlMenu() {
+function ControlMenu({className}) {
     return (
-        <div className="control-menu">
+        <div className={`control-menu ${className}`}>
             <Button className="control-menu__button" name="Добавить">
                 <i className="fas fa-plus"></i>
             </Button>
