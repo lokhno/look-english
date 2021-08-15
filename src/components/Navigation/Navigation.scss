@@ -1,5 +1,9 @@
 @import "../../App.scss";
 .navigation {
+    a {
+        text-decoration: none;
+        color: black;
+    }
     margin: 0;
     margin-bottom: 5px;
     padding: 0;
@@ -75,7 +79,6 @@
         }
         &__item {
             display: flex;
-            justify-content: end !important;
             border-radius: 0;
         }
     }

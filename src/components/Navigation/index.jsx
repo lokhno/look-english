@@ -7,15 +7,20 @@ import NavItem from "./NavItem";
 import "./Navigation.scss";
 
 const NAVIGATION_MENU_ITEMS = [
-    { name: "Мои слова", id: 1 },
-    { name: "Мои категории", id: 2 },
-    { name: "Учить слова", id: 3 },
-    { name: "Подборки слова", id: 4 },
+    { name: "Мои слова", path: "words", id: 1 },
+    { name: "Мои категории", path: "categories", id: 2 },
+    { name: "Учить слова", path: "learnWords", id: 3 },
+    { name: "Подборки слова", path: "comunitycategories", id: 4 },
 ];
 
 function Navigation() {
     const [navMenuVisibilityStatus, setNavMenuVisibilityStatus] = useState(false);
     const [activeNavMenuItem, setActiveNavMenuItem] = useState(1);
+
+    const handleActiveNavMenuItem = (id) => {
+        setActiveNavMenuItem(id)
+    }
+
     const toggleNavMenuVisibility = () => {
         setNavMenuVisibilityStatus(!navMenuVisibilityStatus);
     };
@@ -29,11 +34,11 @@ function Navigation() {
             {NAVIGATION_MENU_ITEMS.map((item) => (
                 <NavItem
                     toggleActive={() => {
-                        console.log(item.id)
-                        setActiveNavMenuItem(item.id);
+                        handleActiveNavMenuItem(item.id);
                     }}
                     key={item.id}
                     isActive={activeNavMenuItem === item.id}
+                    path={item.path}
                 >
                     {item.name}
                 </NavItem>

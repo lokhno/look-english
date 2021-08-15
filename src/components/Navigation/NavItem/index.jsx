@@ -1,12 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import classnames from "classnames";
 
-function NavItem({ children, isActive, toggleActive }) {
+function NavItem({ path, children, isActive, toggleActive }) {
     return (
-        <li onClick={toggleActive} className={classnames("navigation__item", { navigation__item_active: isActive })}>
-            {children}
-        </li>
+        <Link to={path}>
+            <li onClick={toggleActive} className={classnames("navigation__item", { navigation__item_active: isActive })}>
+                {children}
+            </li>
+        </Link>
     );
 }
 
