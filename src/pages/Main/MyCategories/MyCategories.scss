@@ -1,0 +1,12 @@
+.my-categories {
+    &__list {
+        margin-top: 5px;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .my-categories__list {
+        overflow: auto;
+        height: calc(100vh - 150px);
+    }
+}
