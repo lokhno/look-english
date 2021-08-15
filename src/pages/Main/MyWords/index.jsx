@@ -2,7 +2,7 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-import { List } from "../../../components";
+import { List, ControlMenu } from "../../../components";
 import WordItem from "./WordItem";
 
 import "./MyWords.scss";
@@ -13,11 +13,16 @@ function MyWords() {
     });
 
     return (
-        <List className="list__words">
-            {words.map((item) => (
-                <WordItem key={item.id} word={item} />
-            ))}
-        </List>
+        <div>
+            <ControlMenu className="my-words__control-menu"/>
+            <div className="my-words">
+                <List className="my-words__list">
+                    {words.map((item) => (
+                        <WordItem key={item._id} word={item} />
+                    ))}
+                </List>
+            </div>
+        </div>
     );
 }
 
