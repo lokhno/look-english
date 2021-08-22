@@ -3,8 +3,22 @@ const initialState = {
     selectedItems: {},
     items: [
         { eng: "good", ru: "хорошо", _id: 1, status: "Выучено", category: "Прилагательное", examples: "I have good day" },
-        { eng: "small", ru: "маленький", _id: 2, status: "Новое", category: "Прилагательное", examples: "They have small pensions" },
-        { eng: "Friday", ru: "пятница", _id: 3, status: "Выучено", category: "Дни недели", examples: "1 April 1949 was a Friday." },
+        {
+            eng: "small",
+            ru: "маленький",
+            _id: 2,
+            status: "Новое",
+            category: "Прилагательное",
+            examples: "They have small pensions",
+        },
+        {
+            eng: "Friday",
+            ru: "пятница",
+            _id: 3,
+            status: "Выучено",
+            category: "Дни недели",
+            examples: "1 April 1949 was a Friday.",
+        },
     ],
 };
 
@@ -33,7 +47,7 @@ const reduser = (state = initialState, action) => {
                         _id: state.nextID + 1,
                         category: action.payload.category,
                         status: "Новое",
-                        examples: action.payload.examples
+                        examples: action.payload.examples,
                     },
                 ],
                 nextID: state.nextID + 1,
@@ -41,6 +55,7 @@ const reduser = (state = initialState, action) => {
         case "DELETE_WORDS":
             return {
                 ...state,
+                selectedItems: {},
                 items: excludeItems(state, action.payload),
             };
         case "EDIT_WORD":
@@ -54,7 +69,7 @@ const reduser = (state = initialState, action) => {
                         eng: action.payload.item.eng,
                         ru: action.payload.item.ru,
                         status: action.payload.item.status,
-                        examples: action.payload.item.examples
+                        examples: action.payload.item.examples,
                     },
                 ],
             };

@@ -21,8 +21,8 @@ function ControlMenu({ className, selectedItems, handleDelete }) {
                     className="control-menu__button"
                     name="Добавить"
                     handleClick={() => {
-                        setOverlayHidden();
                         dispatch(formActions.setType("add"));
+                        setOverlayHidden();
                     }}
                 >
                     <i className="fas fa-plus"></i>

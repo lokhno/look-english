@@ -26,7 +26,7 @@ function Form({ overlayHidden, setOverlayHidden, children, handleCreate, handleE
                                 } else {
                                     handleCreate();
                                 }
-                                setOverlayHidden(!overlayHidden);
+                                setOverlayHidden();
                             }}
                         >
                             Сохранить
@@ -34,7 +34,7 @@ function Form({ overlayHidden, setOverlayHidden, children, handleCreate, handleE
                         <Button
                             name="Отмена"
                             handleClick={() => {
-                                setOverlayHidden(!overlayHidden);
+                                setOverlayHidden();
                             }}
                         >
                             Отмена

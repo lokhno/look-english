@@ -8,7 +8,7 @@ import { Input, Select, Textarea } from "../../../../components/Fields";
 
 function WordForm({ selectedItems, words }) {
     const dispatch = useDispatch();
-
+    
     const overlayHidden = useSelector(({ form }) => {
         return form.overlayHidden;
     });
@@ -20,6 +20,7 @@ function WordForm({ selectedItems, words }) {
     });
     const selectedId = Object.keys(selectedItems).filter((item) => selectedItems[item])[0];
     const selectedWord = words.filter((item) => item._id === parseInt(selectedId))[0];
+
     useEffect(() => {
         if (type === "edit") {
             if (selectedWord) {
@@ -29,7 +30,7 @@ function WordForm({ selectedItems, words }) {
                 dispatch(formActions.setStatusWord(selectedWord.status));
                 dispatch(formActions.setExamplesWord(selectedWord.examples));
             }
-        }
+        } 
     }, [type, selectedItems, dispatch, selectedWord]);
 
     const handleCreate = () => {
@@ -37,9 +38,11 @@ function WordForm({ selectedItems, words }) {
     };
     const handleEdit = () => {
         dispatch(wordsActions.editWord(currenctWordInfo, parseInt(selectedId)));
+        dispatch(formActions.setType("add"));
     };
 
     const setOverlayHidden = () => {
+        console.log("setOverlayHidden");
         dispatch(formActions.toggleOverlayView());
         dispatch(formActions.setRuWord(""));
         dispatch(formActions.setEngWord(""));
