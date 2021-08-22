@@ -2,9 +2,9 @@ const initialState = {
     nextID: 4,
     selectedItems: {},
     items: [
-        { eng: "good", ru: "хорошо", _id: 1, status: "Выучено", category: "Прилагательное" },
-        { eng: "small", ru: "маленький", _id: 2, status: "Новое", category: "Прилагательное" },
-        { eng: "Friday", ru: "пятница", _id: 3, status: "Выучено", category: "Дни недели" },
+        { eng: "good", ru: "хорошо", _id: 1, status: "Выучено", category: "Прилагательное", examples: "I have good day" },
+        { eng: "small", ru: "маленький", _id: 2, status: "Новое", category: "Прилагательное", examples: "They have small pensions" },
+        { eng: "Friday", ru: "пятница", _id: 3, status: "Выучено", category: "Дни недели", examples: "1 April 1949 was a Friday." },
     ],
 };
 
@@ -33,6 +33,7 @@ const reduser = (state = initialState, action) => {
                         _id: state.nextID + 1,
                         category: action.payload.category,
                         status: "Новое",
+                        examples: action.payload.examples
                     },
                 ],
                 nextID: state.nextID + 1,
@@ -53,6 +54,7 @@ const reduser = (state = initialState, action) => {
                         eng: action.payload.item.eng,
                         ru: action.payload.item.ru,
                         status: action.payload.item.status,
+                        examples: action.payload.item.examples
                     },
                 ],
             };

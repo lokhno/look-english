@@ -15,7 +15,7 @@ function WordItem({ word }) {
     return (
         <ListItem onSelect={handleSelect}>
             <WordContent ru={word.ru} eng={word.eng} />
-            <WordAdditionalInformation category={word.category} status={word.status} />
+            <WordAdditionalInformation category={word.category} status={word.status} examples={word.examples} />
         </ListItem>
     );
 }

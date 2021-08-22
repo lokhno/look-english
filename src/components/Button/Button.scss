@@ -18,6 +18,15 @@
     &__icon {
         display: block;
     }
+    &_blocked {
+        background-color: #828282;
+        cursor: not-allowed !important;
+        box-shadow: none !important;
+        background-color: #828282 !important;
+    }
+    &:active {
+        box-shadow: 0px 0px 2px 1px rgba(34, 60, 80, 0.7);
+    }
 }
 
 @media all and (min-width: 800px) {
@@ -28,6 +37,5 @@
         &__icon {
             display: none;
         }
-
     }
 }

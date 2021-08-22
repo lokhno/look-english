@@ -4,7 +4,7 @@ const actions = {
         payload: item,
     }),
     deleteWords: (ids) => ({
-        type: "DELETE_WORDs",
+        type: "DELETE_WORDS",
         payload: ids,
     }),
     editWord: (item, id) => ({
