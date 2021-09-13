@@ -1,3 +1,7 @@
+import { wordActionsType } from "../types.js";
+
+const { ADD_WORD, DELETE_WORDS, EDIT_WORD, TOGGLE_SELECTED_WORD } = wordActionsType;
+
 const initialState = {
     nextID: 4,
     selectedItems: {},
@@ -36,7 +40,7 @@ const excludeItems = (state, selectedWords) => {
 
 const reduser = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_WORD":
+        case ADD_WORD:
             return {
                 ...state,
                 items: [
@@ -52,13 +56,13 @@ const reduser = (state = initialState, action) => {
                 ],
                 nextID: state.nextID + 1,
             };
-        case "DELETE_WORDS":
+        case DELETE_WORDS:
             return {
                 ...state,
                 selectedItems: {},
                 items: excludeItems(state, action.payload),
             };
-        case "EDIT_WORD":
+        case EDIT_WORD:
             return {
                 ...state,
                 items: [
@@ -73,7 +77,7 @@ const reduser = (state = initialState, action) => {
                     },
                 ],
             };
-        case "TOGGLE_SELECTED":
+        case TOGGLE_SELECTED_WORD:
             return {
                 ...state,
                 selectedItems: {

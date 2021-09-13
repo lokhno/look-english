@@ -10,7 +10,7 @@ import { wordsActions } from "../../../../redux/actions";
 function WordItem({ word }) {
     const dispatch = useDispatch();
     const handleSelect = () => {
-        dispatch(wordsActions.toggleSelected(word._id));
+        dispatch(wordsActions.toggleSelectedWord(word._id));
     };
     return (
         <ListItem onSelect={handleSelect}>
