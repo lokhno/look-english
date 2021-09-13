@@ -1,5 +1,10 @@
+import { categoryActionsType } from "../types.js";
+
+const { ADD_CATEGORY, DELETE_CATEGORIES, EDIT_CATEGORY, TOGGLE_SELECTED_CATEGORIES } = categoryActionsType;
+
 const initialState = {
     nextID: 3,
+    selectedItems: {},
     items: [
         { title: "Прилагательное", _id: 1, example: "good - хорошо" },
         { title: "Дни недели", _id: 2, example: "Friday - пятница" },
@@ -20,24 +25,26 @@ const excludeItems = (state, selectedCategories) => {
 
 const reduser = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_CATEGORY":
+        case ADD_CATEGORY:
             return {
                 ...state,
                 items: [
                     ...state.items,
                     {
+                        _id: state.nextID + 1,
                         title: action.payload.title,
-                        example: "Пока примерно в нет :(",
+                        example: action.payload.example,
                     },
                 ],
                 nextID: state.nextID + 1,
             };
-        case "DELETE_CATEGORIES":
+        case DELETE_CATEGORIES:
             return {
                 ...state,
+                selectedItems: {},
                 items: excludeItems(state, action.payload),
             };
-        case "EDIT_CATEGORY":
+        case EDIT_CATEGORY:
             return {
                 ...state,
                 items: [
@@ -48,6 +55,14 @@ const reduser = (state = initialState, action) => {
                         example: action.payload.item.example,
                     },
                 ],
+            };
+        case TOGGLE_SELECTED_CATEGORIES:
+            return {
+                ...state,
+                selectedItems: {
+                    ...state.selectedItems,
+                    [action.payload]: !state.selectedItems[action.payload],
+                },
             };
         default:
             return state;
