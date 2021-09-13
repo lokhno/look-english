@@ -2,13 +2,15 @@ import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { formActions, wordsActions } from "../../../../redux/actions";
+import { formActions } from "../../../../redux/actions";
 import { Form } from "../../../../components";
 import { Input, Select, Textarea } from "../../../../components/Fields";
+import { handleAddWord, handleEditWord } from "../../../../utils/helpers/words";
+import { setOverlayHidden } from "../../../../utils/helpers/form";
 
 function WordForm({ selectedItems, words }) {
     const dispatch = useDispatch();
-    
+
     const overlayHidden = useSelector(({ form }) => {
         return form.overlayHidden;
     });
@@ -30,33 +32,21 @@ function WordForm({ selectedItems, words }) {
                 dispatch(formActions.setStatusWord(selectedWord.status));
                 dispatch(formActions.setExamplesWord(selectedWord.examples));
             }
-        } 
+        }
     }, [type, selectedItems, dispatch, selectedWord]);
-
-    const handleCreate = () => {
-        dispatch(wordsActions.addWord(currenctWordInfo));
-    };
-    const handleEdit = () => {
-        dispatch(wordsActions.editWord(currenctWordInfo, parseInt(selectedId)));
-        dispatch(formActions.setType("add"));
-    };
-
-    const setOverlayHidden = () => {
-        console.log("setOverlayHidden");
-        dispatch(formActions.toggleOverlayView());
-        dispatch(formActions.setRuWord(""));
-        dispatch(formActions.setEngWord(""));
-        dispatch(formActions.setCategoryWord(""));
-        dispatch(formActions.setStatusWord(""));
-        dispatch(formActions.setExamplesWord(""));
-    };
 
     return (
         <Form
             overlayHidden={overlayHidden}
-            setOverlayHidden={setOverlayHidden}
-            handleCreate={handleCreate}
-            handleEdit={handleEdit}
+            setOverlayHidden={() => {
+                setOverlayHidden(dispatch);
+            }}
+            handleCreate={() => {
+                handleAddWord(dispatch, currenctWordInfo);
+            }}
+            handleEdit={() => {
+                handleEditWord(dispatch, currenctWordInfo, selectedId);
+            }}
             type={type}
         >
             <Input
