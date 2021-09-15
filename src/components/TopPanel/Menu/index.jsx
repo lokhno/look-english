@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 
+import { Link } from "react-router-dom";
+
 import useOnclickOutside from "react-cool-onclickoutside";
 import classnames from "classnames";
 
-import Opener from './Opener'
-import Dropdown from './Dropdown'
-import DropdownItem from './DropdownItem'
+import Opener from "./Opener";
+import Dropdown from "./Dropdown";
+import DropdownItem from "./DropdownItem";
 
-import './Menu.scss'
+import "./Menu.scss";
 
 function Menu({ className }) {
     const [menuVisibilityStatus, setMenuVisibilityStatus] = useState(false);
@@ -22,10 +24,12 @@ function Menu({ className }) {
 
     return (
         <div ref={ref} className={classnames(`menu ${className}`, { menu_open: menuVisibilityStatus })}>
-            <Opener userName="Kolya" handleMenuVisibility={toggleMenuVisibility}/>
+            <Opener userName="Kolya" handleMenuVisibility={toggleMenuVisibility} />
             <Dropdown>
                 <DropdownItem>Редактировать профиль</DropdownItem>
-                <DropdownItem>Выйти</DropdownItem>
+                <Link to="/auth">
+                    <DropdownItem>Выйти</DropdownItem>
+                </Link>
             </Dropdown>
         </div>
     );

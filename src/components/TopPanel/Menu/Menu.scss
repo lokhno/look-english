@@ -4,6 +4,10 @@
     position: relative;
 
     border-top-right-radius: 5px;
+    a {
+        color: #000;
+        text-decoration: none;
+    }
     &__opener {
         cursor: pointer;
         display: flex;

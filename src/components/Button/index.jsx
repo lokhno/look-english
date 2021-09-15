@@ -6,7 +6,7 @@ import "./Button.scss";
 function Button({ children, className, handleClick, name, blocked }) {
     const onClick = () => {
         if (!blocked) {
-            handleClick();
+            handleClick && handleClick();
         }
     };
     return (

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import { Main, Auth } from "./pages";
+import { Main, Auth, Registration } from "./pages";
 
 import "./App.scss";
 
@@ -9,6 +9,7 @@ function App() {
         <Router>
             <Switch>
                 <Route exact path="/auth" render={() => <Auth />} />
+                <Route exact path="/registration" render={() => <Registration />} />
 
                 <Route path={"/"} render={() => <Main />} />
             </Switch>
