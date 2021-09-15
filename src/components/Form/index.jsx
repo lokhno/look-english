@@ -5,7 +5,7 @@ import { Button } from "../";
 
 import "./Form.scss";
 
-function Form({ overlayHidden, setOverlayHidden, children, handleCreate, handleEdit, type }) {
+function Form({ className, overlayHidden, setOverlayHidden, children, handleCreate, handleEdit, type }) {
     return (
         <div>
             <div
@@ -13,7 +13,7 @@ function Form({ overlayHidden, setOverlayHidden, children, handleCreate, handleE
                 onClick={() => setOverlayHidden(!overlayHidden)}
             ></div>
             {!overlayHidden && (
-                <div className="eng-form">
+                <div className={`eng-form ${className}`}>
                     {children.map((item) => item)}
 
                     <div className="eng-form__controller">
