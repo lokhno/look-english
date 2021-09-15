@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { formActions } from "../../../../redux/actions";
 import { Form } from "../../../../components";
-import { Input, Select, Textarea } from "../../../../components/Fields";
+import { Input, Textarea } from "../../../../components/Fields";
 import { handleAddCategory, handleEditCategory } from "../../../../utils/helpers/categories";
 import { setOverlayHidden } from "../../../../utils/helpers/form";
 

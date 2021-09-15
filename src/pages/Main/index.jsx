@@ -14,20 +14,18 @@ function Main() {
         <div>
             <TopPanel />
             <div className="main-page">
-                <Router>
-                    <Navigation />
-                    <div className="content">
-                        <div className="content_container">
-                            <Switch>
-                                <Route exact path="/categories" component={MyCategories} />
-                                <Route exact path="/learnWords" component={LearnWords} />
-                                <Route exact path="/comunitycategories" component={ComunityCategories} />
-                                <Route exact path="/words" component={MyWords} />
-                                <Route exact path="/" component={MyWords} />
-                            </Switch>
-                        </div>
+                <Navigation />
+                <div className="content">
+                    <div className="content_container">
+                        <Switch>
+                            <Route exact path="/categories" component={MyCategories} />
+                            <Route exact path="/learnWords" component={LearnWords} />
+                            <Route exact path="/comunitycategories" component={ComunityCategories} />
+                            <Route exact path="/words" component={MyWords} />
+                            <Route exact path="/" component={MyWords} />
+                        </Switch>
                     </div>
-                </Router>
+                </div>
             </div>
         </div>
     );

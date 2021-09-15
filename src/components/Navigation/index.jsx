@@ -13,13 +13,17 @@ const NAVIGATION_MENU_ITEMS = [
     { name: "Подборки слова", path: "comunitycategories", id: 4 },
 ];
 
+const isLocation = (url) => window.location.pathname.includes(url);
+
 function Navigation() {
     const [navMenuVisibilityStatus, setNavMenuVisibilityStatus] = useState(false);
-    const [activeNavMenuItem, setActiveNavMenuItem] = useState(1);
+    const [activeNavMenuItem, setActiveNavMenuItem] = useState(
+        isLocation("/categories") ? 2 : isLocation("/learnWords") ? 3 : isLocation("/comunitycategories") ? 4 : 1
+    );
 
     const handleActiveNavMenuItem = (id) => {
-        setActiveNavMenuItem(id)
-    }
+        setActiveNavMenuItem(id);
+    };
 
     const toggleNavMenuVisibility = () => {
         setNavMenuVisibilityStatus(!navMenuVisibilityStatus);

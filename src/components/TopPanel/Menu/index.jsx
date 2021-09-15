@@ -26,7 +26,9 @@ function Menu({ className }) {
         <div ref={ref} className={classnames(`menu ${className}`, { menu_open: menuVisibilityStatus })}>
             <Opener userName="Kolya" handleMenuVisibility={toggleMenuVisibility} />
             <Dropdown>
-                <DropdownItem>Редактировать профиль</DropdownItem>
+                <Link to="/UserAccount">
+                    <DropdownItem>Редактировать профиль</DropdownItem>
+                </Link>
                 <Link to="/auth">
                     <DropdownItem>Выйти</DropdownItem>
                 </Link>

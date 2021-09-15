@@ -1,0 +1,64 @@
+@import "../../Variables.scss";
+.user-page {
+    margin: 3px;
+
+    .content {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 5px;
+        margin: 0 10px 10px 0;
+        box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.7);
+        display: flex;
+        justify-content: center;
+
+        &_container {
+            width: 100%;
+            margin: 10px;
+        }
+    }
+    &__form {
+        width: 99%;
+    }
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+    &__buttons {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: column;
+        .button_user-page {
+            width: calc(100% - 22px);
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@media all and (min-width: 800px) {
+    .user-page {
+        display: flex;
+        height: calc(100vh - 75px);
+        margin: 0;
+        .content {
+            width: calc(100%);
+            margin: 0 10px 10px 10px;
+            &__button {
+                margin: 0px 10px 3px 0;
+            }
+        }
+        &__form {
+            width: 79%;
+        }
+        &__buttons {
+            display: flex;
+            flex-direction: row;
+            a:first-child {
+                margin-right: 5px;
+            }
+            a {
+                width: calc(50% - 2.5px);
+            }
+        }
+    }
+}
